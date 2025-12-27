@@ -1,208 +1,114 @@
+/* RESET */
 * {
   box-sizing: border-box;
 }
 
+html, body {
+  min-height: 100%;
+}
+
+/* BACKGROUND FIX (NO GARIS) */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at top, #6d28d9, #2a0a4e 45%, #0a0414 75%);
-  color: white;
-  padding: 50px;
+  color: #f5f3ff;
+
+  background: radial-gradient(
+    ellipse at top,
+    #7a46ff 0%,
+    #3a1773 45%,
+    #14081f 100%
+  );
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-/* TITLE */
-.title {
+/* PAGE */
+.page {
+  min-height: 100vh;
+  padding: 40px 40px 80px;
+}
+
+/* HEADER */
+.header {
   text-align: center;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 64px;
+  margin-bottom: 50px;
+}
+
+.header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 48px;
   letter-spacing: 6px;
   margin: 0;
-  text-shadow: 0 0 25px rgba(167,139,250,0.8);
 }
 
-.subtitle {
-  text-align: center;
-  color: #ddd6fe;
-  margin-bottom: 60px;
+.header p {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #d3c5ff;
 }
 
-/* LAYOUT */
-.bracket {
-  max-width: 1100px;
-  margin: auto;
+/* MAIN GRID */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 160px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  align-items: start;
 }
 
-.column h3,
-.third h3 {
+/* CARD */
+.card {
+  background: linear-gradient(180deg, #5e34d6, #3b1971);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.4);
+}
+
+.card h3 {
+  margin: 0 0 16px;
   font-size: 14px;
-  color: #c4b5fd;
-  margin-bottom: 24px;
+  letter-spacing: 1px;
+  color: #e5dcff;
 }
 
 /* MATCH */
 .match {
-  margin-bottom: 70px;
-}
-
-/* TEAM & SLOT */
-.team,
-.slot {
-  padding: 18px 22px;
-  border-radius: 16px;
-  margin-bottom: 16px;
-  pointer-events: none; /* ⛔ tidak bisa diklik */
-}
-
-/* TEAM */
-.team {
-  background: linear-gradient(135deg, #7c3aed, #4c1d95);
-}
-
-/* SLOT (kosong) */
-.slot {
-  border: 2px dashed #a78bfa;
-  min-height: 58px;
-}
-
-/* MENANG */
-.win {
-  box-shadow: 0 0 28px rgba(221,214,254,1);
-}
-
-/* KALAH */
-.lose {
-  opacity: 0.3;
-  filter: grayscale(70%);
-}
-
-/* JUARA */
-.champion-box,
-.third-box {
-  margin-top: 30px;
-  font-size: 20px;
-  color: #f5f3ff;
-  text-shadow: 0 0 12px gold;
-}
-
-/* 3RD */
-.third {
-  max-width: 1100px;
-  margin: 90px auto 0;
-}
-
-
-/* WRAPPER */
-.podium-wrapper {
-  width: 100%;
   display: flex;
-  justify-content: center;
-  margin-top: 140px;
-  padding-bottom: 80px;
-}
-
-/* PODIUM ROW */
-.podium {
-  display: flex;
-  align-items: flex-end;
-  gap: 60px;
-}
-
-/* ITEM */
-.podium-item {
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.10);
+  margin-bottom: 10px;
 }
 
-/* SLOT */
-.podium-slot {
-  width: 240px;
-  min-height: 90px;
+.score {
+  font-weight: 600;
+  color: #d7c6ff;
+}
+
+/* LEADERBOARD */
+.leaderboard .item {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 22px;
-  border-radius: 20px;
-  background: rgba(124,58,237,0.15);
-  border: 2px dashed #a78bfa;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.12);
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
-/* JUARA EFFECT */
-.first .podium-slot {
-  border-color: gold;
-  box-shadow: 0 0 35px rgba(255,215,0,0.6);
+.gold { color: #ffd700; }
+.silver { color: #cfd8ff; }
+.bronze { color: #ffb870; }
+
+.pair {
+  margin-bottom: 50px; /* jarak antar match beda */
 }
 
-.second .podium-slot {
-  opacity: 0.9;
+.pair:last-child {
+  margin-bottom: 0;
 }
-
-.third .podium-slot {
-  opacity: 0.8;
-}
-
-
-/* RANK */
-.rank {
-  font-size: 22px;
-  letter-spacing: 2px;
-  color: #e9d5ff;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-
-/* SLOT */
-.podium-slot {
-  width: 220px;
-  height: 80px;
-  border-radius: 18px;
-  border: 2px dashed #a78bfa;
-  background: rgba(124,58,237,0.12);
-}
-
-/* HEIGHT EFFECT */
-.first .podium-slot {
-  height: 110px;
-  border-color: gold;
-  box-shadow: 0 0 25px rgba(255,215,0,0.6);
-}
-
-.second .podium-slot {
-  height: 90px;
-}
-
-.third .podium-slot {
-  height: 70px;
-}
-
-.team {
-  background: linear-gradient(135deg, #6d28d9, #7c3aed);
-  border-radius: 18px;
-  padding: 20px 26px;
-  font-size: 18px;
-  margin-bottom: 14px;
-  transition: 0.3s;
-}
-
-.team.win {
-  box-shadow: 0 0 30px rgba(167,139,250,0.7);
-}
-
-.team.lose {
-  opacity: 0.35;
-}
-
-/* SLOT KOSONG */
-.team.empty {
-  background: rgba(124,58,237,0.15);
-  border: 2px dashed rgba(167,139,250,0.5);
-  box-shadow: none;
-}
-
